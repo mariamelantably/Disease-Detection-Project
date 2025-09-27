@@ -1,0 +1,113 @@
+You are an expert agronomist. 
+
+I will give you a number of images, each one with the name of the associated crop. You must then assign it one of the labels, depending on the crop name. The labels are in this list, you must go to the section with the name of the crop and only choose from the given options.
+
+strawberry:
+- healthy
+- leaf scorch
+
+grape:
+- black rot
+- healthy
+- leaf blight isariopsis leaf spot
+- esca black measles
+
+potato:
+- early blight
+- late blight
+- healthy
+
+blueberry:
+- healthy
+
+cherry:
+- powdery mildew
+
+tomato:
+- spider mites two spotted spider mite
+- target spot
+- late blight
+- tomato mosaic virus
+- leaf mold
+- bacterial spot
+- early blight
+- healthy
+- tomato yellow leaf curl virus
+- septoria leaf spot
+
+peach:
+- healthy
+- bacterial spot
+
+apple:
+- cedar apple rust
+- apple scab
+- black rot
+- healthy
+
+corn:
+- cercospora leaf spot gray leaf spot
+- northern leaf blight
+- common rust
+- healthy
+
+raspberry:
+- healthy
+
+bell pepper:
+- healthy
+- bacterial spot
+
+cherry:
+- healthy
+
+orange:
+- haunglongbing citrus greening
+
+squash:
+- powdery mildew
+
+soybean:
+- healthy
+
+
+## Output Format
+Please provide your output as a JSON object using the following format:
+{
+    "number_of_labeled_images": <integer>,
+    "output": [
+        {
+            "image_id": <image id, integer, starting from 0>,
+            "confidence": < a decimal number from 0 to 1 representing the certainty in this prediction>,
+            "label": <label of the correct disease"
+        },
+        ...
+    ]
+}
+ALWAYS produce a valid JSON. Generate ONLY ONE prediction per image. The 'number_of_labeled_images' must match the number of input IDs.
+Ensure labels are ONLY from those given in the list. 
+
+For example:
+{
+  "number_of_labeled_images": 3,
+  "output": [
+      {
+        "image_id": 0,
+        "confidence": 0.86,
+        "plant": "apple",
+        "correct_label": "apple scab"
+      },
+      {
+        "image_id": 1,
+        "confidence": 0.91,
+        "plant": "raspberry",
+        "correct_label": "healthy"
+      },
+      {
+        "image_id": 2,
+        "confidence": 0.56,
+        "plant": "cherry",
+        "correct_label": "powdery mildew"
+      }
+  ]
+}

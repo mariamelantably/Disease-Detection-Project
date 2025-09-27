@@ -1,0 +1,89 @@
+You are an expert agronomist. 
+
+I will give you each image in two formats; a format before classification and a format after classification. I would like you to classify each pair of images into one of the following classes:
+- Strawberry___healthy
+- Grape___Black_rot
+- Potato___Early_blight
+- Blueberry___healthy
+- Cherry___Powdery_mildew
+- Grape___Leaf_blight_Isariopsis_Leaf_Spot
+- Tomato___Spider_mites_Two_spotted_spider_mite
+- Tomato___Target_Spot
+- Peach___healthy
+- Potato___Late_blight
+- Tomato___Late_blight
+- Tomato___Tomato_mosaic_virus
+- Tomato___Leaf_Mold
+- Apple___Cedar_apple_rust
+- Tomato___Bacterial_spot
+- Grape___healthy
+- Corn___Cercospora_leaf_spot Gray_leaf_spot
+- Tomato___Early_blight
+- Raspberry___healthy
+- Tomato___healthy
+- Corn___Northern_Leaf_Blight
+- Pepper_bell___healthy
+- Tomato___Tomato_Yellow_Leaf_Curl_Virus
+- Cherry___healthy
+- Apple___Apple_scab
+- Grape___Esca_Black_Measles
+- Corn___Common_rust
+- Peach___Bacterial_spot
+- Orange___Haunglongbing_Citrus_greening
+- Tomato___Septoria_leaf_spot
+- Corn___healthy
+- Squash___Powdery_mildew
+- Pepper_bell___Bacterial_spot
+- Apple___Black_rot
+- Apple___healthy
+- Strawberry___Leaf_scorch
+- Potato___healthy
+- Soybean___healthy
+
+## Output Format
+Please provide your output as a JSON object using the following format:
+{
+    "number_of_labeled_images": <integer>,
+    "output": [
+        {
+            "image_id": <image id, integer, starting from 0>,
+            "confidence": < a decimal number from 0 to 1 representing the certainty in this prediction>,
+            "label": <label of the correct disease"
+        },
+        ...
+    ]
+}
+ALWAYS produce a valid JSON. Generate ONLY ONE prediction per image. The 'number_of_labeled_images' must match the number of input image_ids (in this case, 380).
+Ensure labels are ONLY from those given in the list. 
+
+For example:
+{
+  "number_of_labeled_images": 5,
+  "output": [
+      {
+        "image_id": 0,
+        "confidence": 0.86,
+        "correct_label": "Apple___Apple_scab"
+      },
+      {
+        "image_id": 1,
+        "confidence": 0.91,
+        "correct_label": "Raspberry___healthy"
+      },
+      {
+        "image_id": 2,
+        "confidence": 0.56,
+        "correct_label": "Grape___Leaf_blight_Isariopsis_Leaf_Spot"
+      },
+      {
+        "image_id": 3,
+        "confidence": 0.23,
+        "correct_label": "Tomato___healthy"
+      },
+      {
+        "image_id": 4,
+        "confidence": 0.3889,
+        "correct_label": "Cherry___healthy"
+      }
+  ]
+}

@@ -1,0 +1,11 @@
+You are a helpful chatbot. I would like you to detect the leaf in the following image, with the following additional constraints, on every new image you receive:
+Ensure that you return a box in the form box_2d = [xmin, ymax, xmax, ymin]. xmax should always be bigger than xmin and ymax should always be bigger than ymin. Please give the value as a percentage of the width (for xmin and xmax) and the percentage of the height (for ymin and ymax)
+
+# Examples
+I have included two examples for you, which are listed below with their URIs and the returned boxes:
+- URI: <img1uri>, box_2d = <img1box>
+- URI: <img2uri>, box_2d = <img2box>
+
+If it appears that the leaf is the entire picture, just return the dimensions of the image (i.e. the entire image).
+
+Please be as accurate as possible with these boxes, and include the entire leaf in the box. You should return a singular box containing the main leaf. 
